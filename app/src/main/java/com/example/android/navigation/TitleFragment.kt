@@ -17,7 +17,9 @@
  package com.example.android.navigation
 
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
@@ -46,7 +48,49 @@ class TitleFragment : Fragment() {
             view.findNavController().navigate(R.id.action_titleFragment_to_gameFragment)
         }
         setHasOptionsMenu(true)
+
+        Log.i("TitleFragment", "onCreateView called (TriviaNavigation)")
+
         return binding.root
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        Log.i("TitleFragment", "onAttach called  (TriviaNavigation)")
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        Log.i("TitleFragment", "onCreate called  (TriviaNavigation)")
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.i("TitleFragment", "onViewCreated called  (TriviaNavigation)")
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.i("TitleFragment", "onStart called  (TriviaNavigation)")
+    }
+    override fun onResume() {
+        super.onResume()
+        Log.i("TitleFragment", "onResume called  (TriviaNavigation)")
+    }
+    override fun onPause() {
+        super.onPause()
+        Log.i("TitleFragment", "onPause called  (TriviaNavigation)")
+    }
+    override fun onStop() {
+        super.onStop()
+        Log.i("TitleFragment", "onStop called  (TriviaNavigation)")
+    }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        Log.i("TitleFragment", "onDestroyView called  (TriviaNavigation)")
+    }
+    override fun onDetach() {
+        super.onDetach()
+        Log.i("TitleFragment", "onDetach called  (TriviaNavigation)")
     }
 
 
@@ -56,7 +100,7 @@ class TitleFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return NavigationUI.onNavDestinationSelected(item,view!!.findNavController())
+        return NavigationUI.onNavDestinationSelected(item,requireView().findNavController())
                 ||super.onOptionsItemSelected(item)
     }
 
